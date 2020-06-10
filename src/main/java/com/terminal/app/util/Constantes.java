@@ -5,15 +5,6 @@ import java.net.UnknownHostException;
 
 public class Constantes {
 	
-	public static String obtenerRuta() {
-		String privateIp ="";
-		try {
-			privateIp = Inet4Address.getLocalHost().getHostAddress();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
-		String url ="http://"+ privateIp +":5000/api/";
-		return url;
-	}
+	public static final String URL_BACK = "http://localhost:2000/api/";
 
 }

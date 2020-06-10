@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.terminal.app.model.Asistencia;
+import com.terminal.app.util.BackCentral;
 import com.zkteco.biometric.FingerprintSensorErrorCode;
 import com.zkteco.biometric.FingerprintSensorEx;
 
@@ -48,6 +50,10 @@ public class HuelleroController {
 	@PostMapping("/open")
 	public ResponseWrapper open() {
 		System.out.println("open");
+		Asistencia asistencia = new Asistencia();
+		asistencia.setIdAsistencia(1);
+		BackCentral backCentral = new BackCentral();
+		backCentral.marcarAsistencia(asistencia);
 		btnOpenActionPerformed();
 		return null;
 	}

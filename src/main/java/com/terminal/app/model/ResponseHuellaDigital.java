@@ -5,7 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseWrapper {
+public class ResponseHuellaDigital {
 
 	private Integer estado;
 	private String msg;
@@ -15,16 +15,16 @@ public class ResponseWrapper {
 	private String accion;
 	private Integer iduser;
 	private String pass;
-	
-	Object defaultObj;
-	
+
+	HuelleroDigital defaultObj;
+
 	List<? extends Object> aaData;
 
-	public Object getDefaultObj() {
+	public HuelleroDigital getDefaultObj() {
 		return defaultObj;
 	}
 
-	public void setDefaultObj(Object defaultObj) {
+	public void setDefaultObj(HuelleroDigital defaultObj) {
 		this.defaultObj = defaultObj;
 	}
 
@@ -99,6 +99,5 @@ public class ResponseWrapper {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
-	
+
 }

@@ -2,13 +2,16 @@ package com.terminal.app.controller;
 
 import java.io.IOException;
 
-import org.apache.catalina.filters.AddDefaultCharsetFilter.ResponseWrapper;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.terminal.app.model.Asistencia;
+import com.terminal.app.model.ResponseWrapper;
 import com.terminal.app.util.BackCentral;
+import com.terminal.app.util.Constantes;
 import com.zkteco.biometric.FingerprintSensorErrorCode;
 import com.zkteco.biometric.FingerprintSensorEx;
 
@@ -47,15 +50,19 @@ public class HuelleroController {
 	private long mhDB = 0;
 	private WorkThread workThread = null;
 
-	@PostMapping("/open")
+	@GetMapping("/open")
 	public ResponseWrapper open() {
-		System.out.println("open");
+		ResponseWrapper resp = new ResponseWrapper();
+		System.out.println("open ");
+		// TODO: Si no posee el huellero, comente las líneas 58 al 62 /* */
 		Asistencia asistencia = new Asistencia();
 		asistencia.setIdAsistencia(1);
 		BackCentral backCentral = new BackCentral();
 		backCentral.marcarAsistencia(asistencia);
 		btnOpenActionPerformed();
-		return null;
+		resp.setEstado(Constantes.valTransaccionOk);
+		resp.setMsg("Open");
+		return resp;
 	}
 
 	@PostMapping("/enroll")

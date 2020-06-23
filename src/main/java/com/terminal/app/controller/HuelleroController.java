@@ -55,11 +55,11 @@ public class HuelleroController {
 		ResponseWrapper resp = new ResponseWrapper();
 		System.out.println("open ");
 		// TODO: Si no posee el huellero, comente las líneas 58 al 62 /* */
-		Asistencia asistencia = new Asistencia();
+		/*Asistencia asistencia = new Asistencia();
 		asistencia.setIdAsistencia(1);
 		BackCentral backCentral = new BackCentral();
 		backCentral.marcarAsistencia(asistencia);
-		btnOpenActionPerformed();
+		btnOpenActionPerformed();*/
 		resp.setEstado(Constantes.valTransaccionOk);
 		resp.setMsg("Open");
 		return resp;
